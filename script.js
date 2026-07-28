@@ -129,24 +129,27 @@ function animateElement(element) {
 
 // Typewriter effect with loop
 function startTypewriter() {
-    const text = "Full Stack Developer";
+    // Use dynamic titles from profile.json or fallback to default
+    const titles = window.dynamicTitles || ["a Web Developer", "a Software Developer", "an Application Developer"];
     const typingText = document.querySelector('.typing-text');
     const cursor = document.querySelector('.cursor');
     const period = document.querySelector('.period');
     let isDeleting = false;
     let charIndex = 0;
+    let titleIndex = 0;
     const typingSpeed = 100; // Speed of typing
     const deletingSpeed = 50; // Speed of deleting
     const pauseTime = 3000; // Time to pause before deleting/retyping
 
     function type() {
-        // Current text
-        const currentText = text.substring(0, charIndex);
+        // Current title text
+        const currentTitle = titles[titleIndex];
+        const currentText = currentTitle.substring(0, charIndex);
         typingText.textContent = currentText;
 
         if (!isDeleting) {
             // Typing
-            if (charIndex < text.length) {
+            if (charIndex < currentTitle.length) {
                 charIndex++;
                 setTimeout(type, typingSpeed);
             } else {
@@ -163,8 +166,10 @@ function startTypewriter() {
                 setTimeout(type, deletingSpeed);
             } else {
                 isDeleting = false;
+                // Move to next title
+                titleIndex = (titleIndex + 1) % titles.length;
                 // Pause before starting to type again
-                setTimeout(type, pauseTime);
+                setTimeout(type, 500);
             }
         }
     }
@@ -589,7 +594,10 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // Initialize everything when page loads
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', async () => {
+    // Load dynamic data first
+    await initializeDynamicData();
+    
     startTypewriter();
     createAnimatedBackground();
     handleNavScroll();
@@ -598,6 +606,159 @@ document.addEventListener('DOMContentLoaded', () => {
     initializeSkillsSection();
     initializeSkillsInfoMessage();
 });
+
+// ================================
+// DYNAMIC DATA LOADING
+// ================================
+
+async function loadData(filename) {
+    try {
+        const response = await fetch(`./data/${filename}`);
+        if (!response.ok) throw new Error(`Failed to load ${filename}`);
+        return await response.json();
+    } catch (error) {
+        console.error(`Error loading ${filename}:`, error);
+        return null;
+    }
+}
+
+// Load and render skills dynamically
+async function loadSkills() {
+    const skillsData = await loadData('skills.json');
+    if (!skillsData) return;
+
+    const categories = ['frontend', 'backend', 'cloud', 'devops'];
+    
+    categories.forEach(category => {
+        const grid = document.querySelector(`.skills-card-grid[data-category="${category}"]`);
+        if (!grid || !skillsData[category]) return;
+
+        grid.innerHTML = skillsData[category].map(skill => `
+            <div class="skill-card ${skill.certified ? 'certified' : ''}">
+                ${skill.certified ? `
+                    <div class="certified-badge">
+                        <i class="fas fa-certificate"></i>
+                        <span>Certified</span>
+                    </div>
+                ` : ''}
+                <div class="skill-card-icon">
+                    <img src="${skill.icon}" alt="${skill.name}">
+                </div>
+                <h3 class="skill-card-title">${skill.name}</h3>
+                <div class="skill-card-exp">
+                    <i class="fas fa-clock"></i>
+                    <span>${skill.experience}</span>
+                </div>
+                ${skill.certified ? `
+                    <div class="certification-info">${skill.certificationName}</div>
+                ` : ''}
+            </div>
+        `).join('');
+    });
+}
+
+// Load and render experience dynamically
+async function loadExperience() {
+    const expData = await loadData('experience.json');
+    if (!expData || !expData.experiences) return;
+
+    const timeline = document.querySelector('.timeline');
+    if (!timeline) return;
+
+    timeline.innerHTML = expData.experiences.map(exp => `
+        <div class="timeline-card">
+            <div class="timeline-header">
+                <h3>${exp.title}</h3>
+                <span class="timeline-date">${exp.dateRange}</span>
+            </div>
+            <div class="timeline-content">
+                <h4>${exp.company}</h4>
+                <p>${exp.description}</p>
+                <ul class="timeline-details">
+                    ${exp.details.map(detail => `<li>${detail}</li>`).join('')}
+                    <li>Responsibilities:</li>
+                    <ul class="nested-details">
+                        ${exp.responsibilities.map(resp => `<li>${resp}</li>`).join('')}
+                    </ul>
+                </ul>
+            </div>
+        </div>
+    `).join('');
+
+    // Re-initialize timeline animations
+    observeTimeline();
+}
+
+// Load and render projects dynamically
+async function loadProjects() {
+    const projData = await loadData('projects.json');
+    if (!projData || !projData.projects) return;
+
+    const grid = document.querySelector('.projects-grid');
+    if (!grid) return;
+
+    grid.innerHTML = projData.projects.map(project => `
+        <div class="project-card">
+            <h3>${project.title}</h3>
+            <p>${project.description}</p>
+            ${project.technologies ? `
+                <div class="project-tech">
+                    ${project.technologies.map(tech => `<span class="tech-tag">${tech}</span>`).join('')}
+                </div>
+            ` : ''}
+            <a href="${project.link}" class="project-link" target="_blank">View Project</a>
+        </div>
+    `).join('');
+}
+
+// Load profile data
+async function loadProfile() {
+    const profile = await loadData('profile.json');
+    if (!profile) return;
+
+    // Update name
+    const nameEl = document.querySelector('.home-title');
+    if (nameEl) nameEl.textContent = profile.name;
+
+    // Store titles for typewriter (will be used by startTypewriter)
+    if (profile.titles) {
+        window.dynamicTitles = profile.titles;
+    }
+
+    // Update contact info
+    const emailLinks = document.querySelectorAll('.contact-item a[href^="mailto:"]');
+    emailLinks.forEach(link => {
+        link.href = `mailto:${profile.email}`;
+        link.textContent = profile.email;
+    });
+
+    const phoneLinks = document.querySelectorAll('.contact-item a[href^="tel:"]');
+    phoneLinks.forEach(link => {
+        link.href = `tel:${profile.phone}`;
+        link.textContent = profile.phone;
+    });
+
+    // Update social links
+    const linkedinLinks = document.querySelectorAll('a[title="LinkedIn"]');
+    linkedinLinks.forEach(link => {
+        if (profile.social.linkedin) link.href = profile.social.linkedin;
+    });
+
+    const githubLinks = document.querySelectorAll('a[title="GitHub"]');
+    githubLinks.forEach(link => {
+        if (profile.social.github) link.href = profile.social.github;
+    });
+}
+
+// Initialize all dynamic data
+async function initializeDynamicData() {
+    await Promise.all([
+        loadProfile(),
+        loadSkills(),
+        loadExperience(),
+        loadProjects()
+    ]);
+}
 
 // Restart animations when scrolling back to home section
 document.addEventListener('scroll', () => {
