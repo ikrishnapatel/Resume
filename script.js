@@ -665,25 +665,58 @@ async function loadExperience() {
     const timeline = document.querySelector('.timeline');
     if (!timeline) return;
 
-    timeline.innerHTML = expData.experiences.map(exp => `
-        <div class="timeline-card">
-            <div class="timeline-header">
-                <h3>${exp.title}</h3>
-                <span class="timeline-date">${exp.dateRange}</span>
-            </div>
-            <div class="timeline-content">
+    timeline.innerHTML = expData.experiences.map(exp => {
+        // Check if this experience has projects (new format) or responsibilities (old format)
+        const hasProjects = exp.projects && exp.projects.length > 0;
+        
+        let contentHTML = '';
+        
+        if (hasProjects) {
+            // New format with projects
+            contentHTML = `
+                <h4>${exp.company}${exp.client ? ` <span class="client-badge">Client: ${exp.client}</span>` : ''}</h4>
+                ${exp.location ? `<p class="location"><i class="fas fa-map-marker-alt"></i> ${exp.location}</p>` : ''}
+                <p>${exp.description}</p>
+                <div class="projects-list">
+                    ${exp.projects.map(project => `
+                        <div class="exp-project">
+                            <h5><i class="fas fa-project-diagram"></i> ${project.name}</h5>
+                            <ul class="nested-details">
+                                ${project.details.map(detail => `<li>${detail}</li>`).join('')}
+                            </ul>
+                        </div>
+                    `).join('')}
+                </div>
+            `;
+        } else {
+            // Old format with details and responsibilities
+            contentHTML = `
                 <h4>${exp.company}</h4>
                 <p>${exp.description}</p>
                 <ul class="timeline-details">
-                    ${exp.details.map(detail => `<li>${detail}</li>`).join('')}
-                    <li>Responsibilities:</li>
-                    <ul class="nested-details">
-                        ${exp.responsibilities.map(resp => `<li>${resp}</li>`).join('')}
-                    </ul>
+                    ${exp.details ? exp.details.map(detail => `<li>${detail}</li>`).join('') : ''}
+                    ${exp.responsibilities ? `
+                        <li>Key Highlights:</li>
+                        <ul class="nested-details">
+                            ${exp.responsibilities.map(resp => `<li>${resp}</li>`).join('')}
+                        </ul>
+                    ` : ''}
                 </ul>
+            `;
+        }
+        
+        return `
+            <div class="timeline-card">
+                <div class="timeline-header">
+                    <h3>${exp.title}</h3>
+                    <span class="timeline-date">${exp.dateRange}</span>
+                </div>
+                <div class="timeline-content">
+                    ${contentHTML}
+                </div>
             </div>
-        </div>
-    `).join('');
+        `;
+    }).join('');
 
     // Re-initialize timeline animations
     observeTimeline();
