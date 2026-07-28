@@ -1,0 +1,37 @@
+{
+    "experiences": [
+        {
+            "title": "Programmer Analyst / Jr. Software Engineer",
+            "company": "Cognizant",
+            "dateRange": "September 2023 - Present",
+            "description": "Currently working as a Developer on project \"The Hartford\" in the Insurance Domain.",
+            "details": [
+                "Role: Junior Developer",
+                "Project: The Hartford (Insurance Domain)",
+                "Status: Ongoing"
+            ],
+            "responsibilities": [
+                "Developing and maintaining front-end components using React/Angular",
+                "Collaborating with cross-functional teams to deliver scalable solutions",
+                "Writing clean, maintainable code and participating in code reviews",
+                "Integrating APIs and ensuring responsive UI/UX across platforms"
+            ]
+        },
+        {
+            "title": "Intern",
+            "company": "Cognizant",
+            "dateRange": "March 2023 - July 2023",
+            "description": "Successfully completed a 6-month internship program with certification in Full Stack Development.",
+            "details": [
+                "Duration: 6 months",
+                "Training: Full Stack Development"
+            ],
+            "responsibilities": [
+                "Gained hands-on experience in both front-end and back-end technologies",
+                "Worked on real-time assignments and collaborative coding tasks",
+                "Built foundational skills in web development, version control, and deployment",
+                "Received certification upon successful completion of the program"
+            ]
+        }
+    ]
+}
