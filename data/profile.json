@@ -1,0 +1,10 @@
+{
+    "name": "Krishna Patel",
+    "titles": ["a Web Developer", "a Software Developer", "an Application Developer"],
+    "email": "ikrishnapatel@gmail.com",
+    "phone": "+91 877-022-5685",
+    "social": {
+        "linkedin": "https://linkedin.com/in/yourusername",
+        "github": "https://github.com/yourusername"
+    }
+}
