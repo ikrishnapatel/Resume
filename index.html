@@ -172,279 +172,31 @@
                     </button>
                 </div>
 
-                <!-- Skills Cards Container -->
+                <!-- Skills Cards Container - Populated dynamically from data/skills.json -->
                 <div class="skills-cards-container">
-                    <!-- Frontend Skills -->
-                    <div class="skills-card-grid active" data-category="frontend">
-                        <div class="skill-card">
-                            <div class="skill-card-icon">
-                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML5">
-                            </div>
-                            <h3 class="skill-card-title">HTML5</h3>
-                            <div class="skill-card-exp">
-                                <i class="fas fa-clock"></i>
-                                <span>2 years</span>
-                            </div>
-                        </div>
-                        <div class="skill-card">
-                            <div class="skill-card-icon">
-                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS3">
-                            </div>
-                            <h3 class="skill-card-title">CSS3</h3>
-                            <div class="skill-card-exp">
-                                <i class="fas fa-clock"></i>
-                                <span>2 years</span>
-                            </div>
-                        </div>
-                        <div class="skill-card">
-                            <div class="skill-card-icon">
-                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript">
-                            </div>
-                            <h3 class="skill-card-title">JavaScript</h3>
-                            <div class="skill-card-exp">
-                                <i class="fas fa-clock"></i>
-                                <span>1.5 years</span>
-                            </div>
-                        </div>
-                        <div class="skill-card">
-                            <div class="skill-card-icon">
-                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React">
-                            </div>
-                            <h3 class="skill-card-title">React</h3>
-                            <div class="skill-card-exp">
-                                <i class="fas fa-clock"></i>
-                                <span>1 year</span>
-                            </div>
-                        </div>
-                        <div class="skill-card">
-                            <div class="skill-card-icon">
-                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/angularjs/angularjs-original.svg" alt="Angular">
-                            </div>
-                            <h3 class="skill-card-title">Angular</h3>
-                            <div class="skill-card-exp">
-                                <i class="fas fa-clock"></i>
-                                <span>1.5 years</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Backend Skills -->
-                    <div class="skills-card-grid" data-category="backend">
-                        <div class="skill-card certified">
-                            <div class="certified-badge">
-                                <i class="fas fa-certificate"></i>
-                                <span>Certified</span>
-                            </div>
-                            <div class="skill-card-icon">
-                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="Java">
-                            </div>
-                            <h3 class="skill-card-title">Java</h3>
-                            <div class="skill-card-exp">
-                                <i class="fas fa-clock"></i>
-                                <span>2 years</span>
-                            </div>
-                            <div class="certification-info">HackerRank Java Certification</div>
-                        </div>
-                        <div class="skill-card">
-                            <div class="skill-card-icon">
-                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg" alt="Spring">
-                            </div>
-                            <h3 class="skill-card-title">Spring</h3>
-                            <div class="skill-card-exp">
-                                <i class="fas fa-clock"></i>
-                                <span>1.5 years</span>
-                            </div>
-                        </div>
-                        <div class="skill-card">
-                            <div class="skill-card-icon">
-                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" alt="Node.js">
-                            </div>
-                            <h3 class="skill-card-title">Node.js</h3>
-                            <div class="skill-card-exp">
-                                <i class="fas fa-clock"></i>
-                                <span>1 year</span>
-                            </div>
-                        </div>
-                        <div class="skill-card certified">
-                            <div class="certified-badge">
-                                <i class="fas fa-certificate"></i>
-                                <span>Certified</span>
-                            </div>
-                            <div class="skill-card-icon">
-                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python">
-                            </div>
-                            <h3 class="skill-card-title">Python</h3>
-                            <div class="skill-card-exp">
-                                <i class="fas fa-clock"></i>
-                                <span>2 years</span>
-                            </div>
-                            <div class="certification-info">Python Developer</div>
-                        </div>
-                    </div>
-
-                    <!-- Cloud Skills -->
-                    <div class="skills-card-grid" data-category="cloud">
-                        <div class="skill-card certified">
-                            <div class="certified-badge">
-                                <i class="fas fa-certificate"></i>
-                                <span>Certified</span>
-                            </div>
-                            <div class="skill-card-icon">
-                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-plain-wordmark.svg" alt="AWS">
-                            </div>
-                            <h3 class="skill-card-title">AWS</h3>
-                            <div class="skill-card-exp">
-                                <i class="fas fa-clock"></i>
-                                <span>1.5 years</span>
-                            </div>
-                            <div class="certification-info">AWS Certified Cloud Practitioner</div>
-                        </div>
-                        <div class="skill-card certified">
-                            <div class="certified-badge">
-                                <i class="fas fa-certificate"></i>
-                                <span>Certified</span>
-                            </div>
-                            <div class="skill-card-icon">
-                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-plain-wordmark.svg" alt="AWS AI">
-                            </div>
-                            <h3 class="skill-card-title">AWS AI</h3>
-                            <div class="skill-card-exp">
-                                <i class="fas fa-clock"></i>
-                                <span>1 year</span>
-                            </div>
-                            <div class="certification-info">AWS Certified AI Practitioner</div>
-                        </div>
-                        <div class="skill-card">
-                            <div class="skill-card-icon">
-                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/googlecloud/googlecloud-original.svg" alt="GCP">
-                            </div>
-                            <h3 class="skill-card-title">GCP</h3>
-                            <div class="skill-card-exp">
-                                <i class="fas fa-clock"></i>
-                                <span>6 months</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- DevOps Skills -->
-                    <div class="skills-card-grid" data-category="devops">
-                        <div class="skill-card">
-                            <div class="skill-card-icon">
-                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jenkins/jenkins-original.svg" alt="Jenkins">
-                            </div>
-                            <h3 class="skill-card-title">Jenkins</h3>
-                            <div class="skill-card-exp">
-                                <i class="fas fa-clock"></i>
-                                <span>1.5 years</span>
-                            </div>
-                        </div>
-                        <div class="skill-card certified">
-                            <div class="certified-badge">
-                                <i class="fas fa-certificate"></i>
-                                <span>Certified</span>
-                            </div>
-                            <div class="skill-card-icon">
-                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub">
-                            </div>
-                            <h3 class="skill-card-title">GitHub</h3>
-                            <div class="skill-card-exp">
-                                <i class="fas fa-clock"></i>
-                                <span>1 year</span>
-                            </div>
-                            <div class="certification-info">GitHub Foundation & Copilot</div>
-                        </div>
-                        <div class="skill-card">
-                            <div class="skill-card-icon">
-                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" alt="Docker">
-                            </div>
-                            <h3 class="skill-card-title">Docker</h3>
-                            <div class="skill-card-exp">
-                                <i class="fas fa-clock"></i>
-                                <span>1 year</span>
-                            </div>
-                        </div>
-                    </div>
+                    <div class="skills-card-grid active" data-category="frontend"></div>
+                    <div class="skills-card-grid" data-category="backend"></div>
+                    <div class="skills-card-grid" data-category="cloud"></div>
+                    <div class="skills-card-grid" data-category="devops"></div>
                 </div>
             </div>
         </section>
 
-        <!-- Experience Section -->
+        <!-- Experience Section - Populated dynamically from data/experience.json -->
         <section id="experience" class="section">
             <div class="section-content">
                 <h2 class="section-title">Experience</h2>
                 <div class="timeline">
-                    <!-- Current Role -->
-                    <div class="timeline-card">
-                        <div class="timeline-header">
-                            <h3>Programmer Analyst / Jr. Software Engineer</h3>
-                            <span class="timeline-date">September 2023 - Present</span>
-                        </div>
-                        <div class="timeline-content">
-                            <h4>Cognizant</h4>
-                            <p>Currently working as a Developer on project "The Hartford" in the Insurance Domain.</p>
-                            <ul class="timeline-details">
-                                <li>Role: Junior Developer</li>
-                                <li>Project: The Hartford (Insurance Domain)</li>
-                                <li>Status: Ongoing</li>
-                                <li>Responsibilities:</li>
-                                <ul class="nested-details">
-                                    <li>Developing and maintaining front-end components using React/Angular</li>
-                                    <li>Collaborating with cross-functional teams to deliver scalable solutions</li>
-                                    <li>Writing clean, maintainable code and participating in code reviews</li>
-                                    <li>Integrating APIs and ensuring responsive UI/UX across platforms</li>
-                                </ul>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <!-- Internship -->
-                    <div class="timeline-card">
-                        <div class="timeline-header">
-                            <h3>Intern</h3>
-                            <span class="timeline-date">March 2023 - July 2023</span>
-                        </div>
-                        <div class="timeline-content">
-                            <h4>Cognizant</h4>
-                            <p>Successfully completed a 6-month internship program with certification in Full Stack
-                                Development.</p>
-                            <ul class="timeline-details">
-                                <li>Duration: 6 months</li>
-                                <li>Training: Full Stack Development</li>
-                                <li>Key Highlights:</li>
-                                <ul class="nested-details">
-                                    <li>Gained hands-on experience in both front-end and back-end technologies</li>
-                                    <li>Worked on real-time assignments and collaborative coding tasks</li>
-                                    <li>Built foundational skills in web development, version control, and deployment
-                                    </li>
-                                    <li>Received certification upon successful completion of the program</li>
-                                </ul>
-                            </ul>
-                        </div>
-                    </div>
+                    <!-- Timeline cards will be loaded dynamically -->
                 </div>
             </div>
         </section>
 
-        <!-- Projects Section -->
+        <!-- Projects Section - Populated dynamically from data/projects.json -->
         <section id="projects" class="section">
             <h2>Projects</h2>
             <div class="projects-grid">
-                <!-- Project cards will be added here -->
-                <div class="project-card">
-                    <h3>Project 1</h3>
-                    <p>Description of project 1 goes here. This is a brief overview of what the project does.</p>
-                    <a href="#" class="project-link">View Project</a>
-                </div>
-                <div class="project-card">
-                    <h3>Project 2</h3>
-                    <p>Description of project 2 goes here. This is a brief overview of what the project does.</p>
-                    <a href="#" class="project-link">View Project</a>
-                </div>
-                <div class="project-card">
-                    <h3>Project 3</h3>
-                    <p>Description of project 3 goes here. This is a brief overview of what the project does.</p>
-                    <a href="#" class="project-link">View Project</a>
-                </div>
+                <!-- Project cards will be loaded dynamically -->
             </div>
         </section>
 
