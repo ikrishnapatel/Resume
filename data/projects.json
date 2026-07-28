@@ -1,0 +1,22 @@
+{
+    "projects": [
+        {
+            "title": "Portfolio Website",
+            "description": "A modern, responsive portfolio website built with HTML, CSS, and JavaScript featuring dark mode, theme customization, and animations.",
+            "link": "https://github.com/yourusername/portfolio",
+            "technologies": ["HTML5", "CSS3", "JavaScript"]
+        },
+        {
+            "title": "Project 2",
+            "description": "Description of project 2 goes here. This is a brief overview of what the project does.",
+            "link": "#",
+            "technologies": ["React", "Node.js"]
+        },
+        {
+            "title": "Project 3",
+            "description": "Description of project 3 goes here. This is a brief overview of what the project does.",
+            "link": "#",
+            "technologies": ["Java", "Spring Boot"]
+        }
+    ]
+}
