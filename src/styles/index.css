@@ -1,0 +1,84 @@
+/* Import your existing CSS here */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+/* Reset and base styles */
+:root {
+  --primary-color: #ec4899;
+  --bg-color: #f8f9fa;
+  --text-color: #333;
+  --card-bg: #ffffff;
+  --border-color: rgba(0, 0, 0, 0.05);
+  --shadow-color: rgba(0, 0, 0, 0.05);
+  --secondary-text: #64748b;
+  --shape-color: rgba(236, 72, 153, 0.1);
+  --symbol-color: rgba(236, 72, 153, 0.6);
+  --section-bg: #ffffff;
+}
+
+/* Dark mode variables */
+[data-theme="dark"] {
+  --bg-color: #242424;
+  --text-color: #e5e5e5;
+  --card-bg: #2f2f2f;
+  --border-color: rgba(255, 255, 255, 0.1);
+  --shadow-color: rgba(255, 255, 255, 0.05);
+  --secondary-text: #a1a1aa;
+  --shape-color: rgba(37, 99, 235, 0.2);
+  --symbol-color: rgba(37, 99, 235, 0.8);
+  --section-bg: #242424;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-padding-top: 5rem;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  min-height: 100vh;
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Section styles */
+.section {
+  padding: 5rem 0;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.section-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  width: 100%;
+}
+
+.section-title {
+  color: var(--primary-color);
+  position: relative;
+  display: inline-block;
+  margin-bottom: 2.5rem;
+  font-size: 2.5rem;
+  font-weight: 600;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .section-title {
+    font-size: 2rem;
+  }
+  
+  .section {
+    padding: 3rem 0;
+  }
+} 
