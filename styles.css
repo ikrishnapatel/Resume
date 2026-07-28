@@ -533,7 +533,7 @@ main section:not(#home) {
 
 /* Cards glassmorphism enhancement */
 .project-card {
-    background-color: #ffffff;
+    background-color: var(--card-bg);
     padding: 2rem;
     border-radius: 8px;
     transition: all 0.3s ease;
@@ -554,9 +554,30 @@ main section:not(#home) {
 }
 
 .project-card p {
-    color: #64748b;
+    color: var(--secondary-text);
     line-height: 1.6;
     margin-bottom: 1.5rem;
+}
+
+/* Project Technology Tags */
+.project-tech {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.tech-tag {
+    background: color-mix(in srgb, var(--primary-color) 15%, transparent);
+    color: var(--primary-color);
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+[data-theme="dark"] .tech-tag {
+    background: color-mix(in srgb, var(--primary-color) 25%, transparent);
 }
 
 .project-link {
@@ -1466,10 +1487,10 @@ main section:not(#home) {
     width: calc(50% - 30px);
     margin: 2rem 0;
     padding: 2rem;
-    background: #ffffff;
+    background: var(--card-bg);
     border-radius: 8px;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
-    border: 1px solid rgba(0, 0, 0, 0.05);
+    border: 1px solid var(--border-color);
     transition: all 0.3s ease;
 }
 
@@ -1514,10 +1535,10 @@ main section:not(#home) {
     height: 16px;
     /* Increased from 12px */
     border-radius: 50%;
-    background-color: #ffffff;
+    background-color: var(--card-bg);
     border: 3px solid var(--primary-color);
     /* Increased from 2px */
-    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--primary-color) 20%, transparent);
     /* Updated for better visibility */
     z-index: 1;
     /* Added to ensure dot appears above line */
@@ -1545,18 +1566,18 @@ main section:not(#home) {
 
 .timeline-date {
     font-size: 0.9rem;
-    color: #64748b;
+    color: var(--secondary-text);
     font-weight: 500;
 }
 
 .timeline-content h4 {
     font-size: 1.2rem;
-    color: #334155;
+    color: var(--text-color);
     margin-bottom: 1rem;
 }
 
 .timeline-content p {
-    color: #64748b;
+    color: var(--secondary-text);
     line-height: 1.6;
     margin-bottom: 1rem;
 }
@@ -1567,7 +1588,7 @@ main section:not(#home) {
 }
 
 .timeline-details li {
-    color: #64748b;
+    color: var(--secondary-text);
     margin-bottom: 0.5rem;
     padding-left: 1.5rem;
     position: relative;
@@ -2072,6 +2093,42 @@ main section:not(#home) {
 
 [data-theme="dark"] .footer-social a:hover {
     color: var(--primary-color);
+}
+
+/* Timeline/Experience section in dark mode */
+[data-theme="dark"] .timeline-card {
+    background: var(--card-bg);
+    border-color: var(--border-color);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+[data-theme="dark"] .timeline-card:hover {
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+    border-color: var(--primary-color);
+}
+
+[data-theme="dark"] .timeline-card::after {
+    background-color: var(--card-bg);
+}
+
+[data-theme="dark"] .timeline-date {
+    color: var(--secondary-text);
+}
+
+[data-theme="dark"] .timeline-content h4 {
+    color: var(--text-color);
+}
+
+[data-theme="dark"] .timeline-content p {
+    color: var(--secondary-text);
+}
+
+[data-theme="dark"] .timeline-details li {
+    color: var(--secondary-text);
+}
+
+[data-theme="dark"] .nested-details li {
+    color: var(--secondary-text);
 }
 
 /* Navigation in dark mode */
@@ -2781,7 +2838,7 @@ main section:not(#home) {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: rgba(37, 99, 235, 0.1);
+    background: color-mix(in srgb, var(--primary-color) 15%, transparent);
     border-radius: 50%;
 }
 
@@ -2805,7 +2862,7 @@ main section:not(#home) {
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    background: rgba(37, 99, 235, 0.1);
+    background: color-mix(in srgb, var(--primary-color) 15%, transparent);
     color: var(--primary-color);
     display: flex;
     align-items: center;
