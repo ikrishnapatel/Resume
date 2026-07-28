@@ -1,20 +1,49 @@
 {
     "experiences": [
         {
-            "title": "Programmer Analyst / Jr. Software Engineer",
+            "title": "Software Engineer",
             "company": "Cognizant",
-            "dateRange": "September 2023 - Present",
-            "description": "Currently working as a Developer on project \"The Hartford\" in the Insurance Domain.",
-            "details": [
-                "Role: Junior Developer",
-                "Project: The Hartford (Insurance Domain)",
-                "Status: Ongoing"
-            ],
-            "responsibilities": [
-                "Developing and maintaining front-end components using React/Angular",
-                "Collaborating with cross-functional teams to deliver scalable solutions",
-                "Writing clean, maintainable code and participating in code reviews",
-                "Integrating APIs and ensuring responsive UI/UX across platforms"
+            "client": "The Hartford",
+            "location": "Pune, India",
+            "dateRange": "April 2025 - Present",
+            "description": "Promoted to Software Engineer, leading security-focused development initiatives for enterprise applications.",
+            "projects": [
+                {
+                    "name": "Agentic AI PII Detection Platform",
+                    "details": [
+                        "Engineered optimized Splunk queries with index-level filtering to analyze 1M+ logs, extracting potential PII values across multiple data types (SSN, emails, credit cards, etc.) with high recall.",
+                        "Built an event-driven pipeline using webhooks to stream extracted findings to a gateway, where Google Vertex AI (Gemini) agents classified each detection as true or false positive — drastically reducing noise.",
+                        "Automated end-to-end incident creation in ServiceNow, dynamically routing alerts based on detection source and PII type — reducing mean-time-to-detection from hours to seconds and enabling fully hands-off triage."
+                    ]
+                },
+                {
+                    "name": "Organization-Wide IDE Security Plugins",
+                    "details": [
+                        "Developed and deployed custom VS Code and Eclipse security extensions org-wide, embedding shift-left secret detection directly into developer workflows across 100+ engineers.",
+                        "Implemented highly optimized regex-based scanning engines with pattern libraries for 300+ secret types (AWS keys, API tokens, passwords, certificates, private keys, etc.) that flag secrets locally before code commits.",
+                        "Built real-time inline diagnostics with severity indicators and one-click remediation suggestions, reducing developer friction while preventing credential leakage at the source.",
+                        "Implemented real-time warning pop-ups triggered on file save when secrets are detected, surfacing issues in the Problems console and blocking commits until all findings are resolved."
+                    ]
+                }
+            ]
+        },
+        {
+            "title": "Junior Software Engineer",
+            "company": "Cognizant",
+            "client": "The Hartford",
+            "location": "Pune, India",
+            "dateRange": "September 2023 - March 2025",
+            "description": "Worked as a Full Stack Developer on enterprise security solutions in the Insurance Domain.",
+            "projects": [
+                {
+                    "name": "Full-Stack Vulnerability Dashboard",
+                    "details": [
+                        "Delivered a production-grade security dashboard in 6 months, giving leadership centralized, real-time visibility into the organization's vulnerability posture across all applications.",
+                        "Architected scalable Java Spring Boot backend services with layered architecture, implementing RESTful endpoints that consumed Python Powertool APIs and GraphQL to fetch, aggregate, and normalize vulnerability metrics from the Traceable platform.",
+                        "Designed efficient data aggregation pipelines to consolidate thousands of security findings into a single source of truth, enabling leadership to track remediation progress and prioritize critical vulnerabilities.",
+                        "Built interactive Power BI dashboards with drill-down capabilities, visualizing vulnerability trends, severity distributions, and team-wise remediation metrics for executive reporting."
+                    ]
+                }
             ]
         },
         {
